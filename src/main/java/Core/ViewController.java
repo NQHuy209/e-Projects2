@@ -4,9 +4,6 @@
  */
 package Core;
 
-import UI.main.BanHang;
-import UI.main.QuanLy;
-import UI.main.ThongKe;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
@@ -36,7 +33,6 @@ public class ViewController {
         
         root.removeAll();
         root.setLayout(new BorderLayout());
-        root.add(new QuanLy());
         root.validate();
         root.repaint();
     }
@@ -63,12 +59,7 @@ public class ViewController {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            node = switch (page) {
-                case "QuanLy" -> new QuanLy();
-                case "BanHang" -> new BanHang();
-                case "ThongKe" -> new ThongKe();
-                default -> new QuanLy();
-            };
+            
             root.removeAll();
             root.setLayout(new BorderLayout());
             root.add(node);
