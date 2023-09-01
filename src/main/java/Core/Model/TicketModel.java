@@ -4,6 +4,8 @@
  */
 package Core.Model;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 
 /**
@@ -68,5 +70,16 @@ public class TicketModel {
         this.id_room = id_room;
     }
     
+    public void readRecord(ResultSet resultSet){
     
+        try {
+            this.id_ticket = resultSet.getInt("id_ticket");
+            this.id_users = resultSet.getInt("id_users");
+            this.sale_date = resultSet.getDate("sale_date");
+            this.id_schedule = resultSet.getInt("id_schedule");
+            this.id_room = resultSet.getInt("id_room");
+        } catch (SQLException e) {
+        }
+        
+    }
 }

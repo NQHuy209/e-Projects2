@@ -4,6 +4,9 @@
  */
 package Core.Model;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author Quang Huy
@@ -56,4 +59,15 @@ public class RoomSeatModel {
         this.id_room = id_room;
     }
     
+     public void readRecord(ResultSet resultSet){
+    
+        try {
+            this.id_room_seat = resultSet.getInt("id_room_seat");
+            this.seat_column = resultSet.getString("seat_column");
+            this.seat_row = resultSet.getString("seat_row");
+            this.id_room = resultSet.getInt("id_room");
+        } catch (SQLException e) {
+        }
+        
+    }
 }

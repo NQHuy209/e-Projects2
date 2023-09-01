@@ -4,7 +4,11 @@
  */
 package Core.Model;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -14,7 +18,7 @@ public class UsersModel {
     private int id_users;
     private String name;
     private String address;
-    private int phone_number;
+    private String phone_number;
     private Date birthday;
     private String gender;
     private String email;
@@ -24,7 +28,7 @@ public class UsersModel {
     public UsersModel() {
     }
 
-    public UsersModel(int id_users, String name, String address, int phone_number, Date birthday, String gender, String email, String username, String password) {
+    public UsersModel(int id_users, String name, String address, String phone_number, Date birthday, String gender, String email, String username, String password) {
         this.id_users = id_users;
         this.name = name;
         this.address = address;
@@ -60,11 +64,11 @@ public class UsersModel {
         this.address = address;
     }
 
-    public int getPhone_number() {
+    public String getPhone_number() {
         return phone_number;
     }
 
-    public void setPhone_number(int phone_number) {
+    public void setPhone_number(String phone_number) {
         this.phone_number = phone_number;
     }
 
@@ -108,4 +112,20 @@ public class UsersModel {
         this.password = password;
     }
     
+    
+     public void readRecord(ResultSet resultSet) {
+        try {
+            this.id_users = resultSet.getInt("id_users");
+            this.name = resultSet.getString("name");
+            this.address = resultSet.getString("address");
+            this.phone_number = resultSet.getString("phone_number");
+            this.birthday = resultSet.getDate("birthday");
+            this.gender = resultSet.getString("gender");
+            this.email = resultSet.getString("email");
+            this.username = resultSet.getString("username");
+            this.password = resultSet.getString("password");
+        } catch (SQLException ex) {
+            Logger.getLogger(MovieModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

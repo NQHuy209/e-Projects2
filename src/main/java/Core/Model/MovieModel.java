@@ -4,13 +4,19 @@
  */
 package Core.Model;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Quang Huy
  */
 public class MovieModel extends BaseModel {
+
+    private int id;
     private String name;
     private String director;
     private Date release;
@@ -24,7 +30,8 @@ public class MovieModel extends BaseModel {
     public MovieModel() {
     }
 
-    public MovieModel(String name, String director, Date release, int duration, String moviecol, String cast, String thumbnail, String movie_form, String movie_type) {
+    public MovieModel(int id, String name, String director, Date release, int duration, String moviecol, String cast, String thumbnail, String movie_form, String movie_type) {
+        this.id = id;
         this.name = name;
         this.director = director;
         this.release = release;
@@ -34,6 +41,14 @@ public class MovieModel extends BaseModel {
         this.thumbnail = thumbnail;
         this.movie_form = movie_form;
         this.movie_type = movie_type;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -106,6 +121,23 @@ public class MovieModel extends BaseModel {
 
     public void setMovie_type(String movie_type) {
         this.movie_type = movie_type;
+    }
+
+    public void readRecord(ResultSet resultSet) {
+        try {
+            this.id = resultSet.getInt("id");
+            this.name = resultSet.getString("name");
+            this.director = resultSet.getString("director");
+            this.release = resultSet.getDate("release");
+            this.duration = resultSet.getInt("duration");
+            this.moviecol = resultSet.getString("moviecol");
+            this.cast = resultSet.getString("cast");
+            this.thumbnail = resultSet.getString("thumbnail");
+            this.movie_form = resultSet.getString("movie_form");
+            this.movie_type = resultSet.getString("movie_type");
+        } catch (SQLException ex) {
+            Logger.getLogger(MovieModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     

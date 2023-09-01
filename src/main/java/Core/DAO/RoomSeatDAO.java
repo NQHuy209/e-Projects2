@@ -4,65 +4,86 @@
  */
 package Core.DAO;
 
+import static Core.DAO.BaseDAO.Connection;
+import static Core.DAO.BaseDAO.conn;
+import static Core.DAO.BaseDAO.statement;
+import Core.DAO.inteface.IRoomSeatDAO;
+import Core.Model.MovieModel;
 import Core.Model.RoomSeatModel;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Quang Huy
  */
-public class RoomSeatDAO extends BaseDAO  {
-    public static List<RoomSeatModel> getList() throws SQLException {
+public class RoomSeatDAO extends BaseDAO implements IRoomSeatDAO {
+
+    @Override
+    public List<RoomSeatModel> rSeatList() {
         List<RoomSeatModel> rSeatList = new ArrayList<>();
-        Connection();
+     
+        String sql = "SELECT * FROM room_seat";
+
         try {
-            String sql = "SELECT * FROM room_seat";
+            Connection();
             statement = conn.prepareStatement(sql);
             ResultSet set = statement.executeQuery();
-        } catch (SQLException e) {
+
+            while(set.next()) {
+                RoomSeatModel rSeat = new RoomSeatModel();
+                    rSeat.readRecord(set);    
+                 rSeatList.add(rSeat);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(MovieDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Connection();
-        return null;
-     }
+        return rSeatList;
+
+    }
     
-    public void save() throws SQLException {
-        Connection();
-        RoomSeatModel roomS = new RoomSeatModel();
+    @Override
+    public void add(RoomSeatModel roomS) {
         try {
+            Connection();
             String sql = "INSERT INTO room_seat(seat_column, seat_row) VALUES (?, ?)";
             statement = conn.prepareStatement(sql);
             statement.setString(1, roomS.getSeat_column());
             statement.setString(2, roomS.getSeat_row());
-            
+
             statement.execute();
         } catch (SQLException e) {
         }
-        Disconnection();
+        Disconnect();
     }
 
-    public void update(RoomSeatModel updateRoom) throws SQLException {
-        Connection();
+    @Override
+    public void update(RoomSeatModel updateRoom) {
         RoomSeatModel roomS = new RoomSeatModel();
         try {
-        String sql = "UPDATE room_seat SET seat_column=?, seat_row=? WHERE id = ?";
+            Connection();
+            String sql = "UPDATE room_seat SET seat_column=?, seat_row=? WHERE id = ?";
             statement = conn.prepareStatement(sql);
             statement.setString(1, roomS.getSeat_column());
             statement.setString(2, roomS.getSeat_row());
-            
+
             statement.execute();
         } catch (SQLException e) {
         }
-        Disconnection();
+        Disconnect();
     }
     
-    public void detele(int id) throws SQLException {
-        Connection();
+    @Override
+    public void detele(int id) {
         RoomSeatModel roomS = new RoomSeatModel();
         try {
+            Connection();
             Statement stmt = conn.createStatement();
             String sql = "DELETE FROM room_seat WHERE id = " + id;
             statement = conn.prepareStatement(sql);
@@ -72,4 +93,5 @@ public class RoomSeatDAO extends BaseDAO  {
         } catch (SQLException e) {
         }
     }
+
 }
