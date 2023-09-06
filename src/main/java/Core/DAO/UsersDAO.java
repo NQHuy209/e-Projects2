@@ -12,12 +12,49 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 
-/**
- *
- * @author Quang Huy
- */
 public class UsersDAO extends BaseDAO {
+
+    public static int id;
+    public static String username;
+    public static String password;
+    public static UsersDAO user = new UsersDAO();
+
+    public static boolean checkAcc(JFrame frame, JTextField jTextField_UserName, JPasswordField jPasswordField1) {
+        boolean check = true;
+        Connection();
+        String sql = "SELECT * FROM project2.users WHERE username = '" + jTextField_UserName.getText() + "'";
+
+        try {
+            statement = conn.prepareStatement(sql);
+            ResultSet set = statement.executeQuery();
+            if (set.next()) {
+                if (jPasswordField1.getText().equals(set.getString("password"))) {
+                    id = set.getInt("id");
+                    username = set.getString("username");
+                    check = true;
+
+                }else{
+                    check = false;
+                    jPasswordField1.requestFocus();
+                    JOptionPane.showMessageDialog(frame, "Mật khẩu chưa chính xác",null,JOptionPane.WARNING_MESSAGE);
+                }
+            }else {
+                check = false;
+                jTextField_UserName.requestFocus();
+                JOptionPane.showMessageDialog(frame, "Tên người dùng không tồn tại", null, JOptionPane.WARNING_MESSAGE);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UsersDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Disconnect();
+        return check;
+
+    }
     
     public static List<UsersModel> userList;
     
