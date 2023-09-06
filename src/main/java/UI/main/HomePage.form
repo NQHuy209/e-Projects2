@@ -120,7 +120,7 @@
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="153" max="-2" attributes="0"/>
-                                      <Component id="btnPhim" min="-2" pref="178" max="-2" attributes="0"/>
+                                      <Component id="btnVe" min="-2" pref="178" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="btnHoaDon" min="-2" pref="178" max="-2" attributes="0"/>
                                   </Group>
@@ -138,8 +138,8 @@
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="btnPhim3" alignment="1" min="-2" pref="178" max="-2" attributes="0"/>
-                                  <Component id="btnPhim6" alignment="1" min="-2" pref="178" max="-2" attributes="0"/>
+                                  <Component id="btnDoanhThu" alignment="1" min="-2" pref="178" max="-2" attributes="0"/>
+                                  <Component id="btnVeBan" alignment="1" min="-2" pref="178" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                           </Group>
@@ -160,9 +160,9 @@
                               <EmptySpace min="32" pref="32" max="-2" attributes="0"/>
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                              <Component id="btnPhim3" min="-2" pref="104" max="-2" attributes="0"/>
+                              <Component id="btnDoanhThu" min="-2" pref="104" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="btnPhim6" min="-2" pref="104" max="-2" attributes="0"/>
+                              <Component id="btnVeBan" min="-2" pref="104" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
@@ -175,7 +175,7 @@
                               </Group>
                               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnPhim" alignment="3" min="-2" pref="104" max="-2" attributes="0"/>
+                                  <Component id="btnVe" alignment="3" min="-2" pref="104" max="-2" attributes="0"/>
                                   <Component id="btnHoaDon" alignment="3" min="-2" pref="104" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -187,7 +187,7 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="btnPhim">
+            <Component class="javax.swing.JButton" name="btnVe">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="66" red="ff" type="rgb"/>
@@ -201,7 +201,7 @@
                 <Property name="text" type="java.lang.String" value="V&#xe9;"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPhimActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVeActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnNguoiDung">
@@ -272,7 +272,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPhim2ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnPhim3">
+            <Component class="javax.swing.JButton" name="btnDoanhThu">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="66" red="ff" type="rgb"/>
@@ -286,10 +286,10 @@
                 <Property name="text" type="java.lang.String" value="Doanh Thu"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPhim3ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDoanhThuActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="btnPhim6">
+            <Component class="javax.swing.JButton" name="btnVeBan">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="66" red="ff" type="rgb"/>
@@ -303,7 +303,7 @@
                 <Property name="text" type="java.lang.String" value="V&#xe9; B&#xe1;n"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPhim6ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnVeBanActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="btnCollapse3">

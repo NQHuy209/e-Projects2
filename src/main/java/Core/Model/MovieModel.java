@@ -19,28 +19,30 @@ public class MovieModel extends BaseModel {
     private int id;
     private String name;
     private String director;
-    private Date release;
+    private String release;
     private int duration;
     private String moviecol;
-    private String cast;
+    private String casting;
     private String thumbnail;
     private String movie_form;
     private String movie_type;
+    private String status;
 
     public MovieModel() {
     }
 
-    public MovieModel(int id, String name, String director, Date release, int duration, String moviecol, String cast, String thumbnail, String movie_form, String movie_type) {
+    public MovieModel(int id, String name, String director, String release, int duration, String moviecol, String casting, String thumbnail, String movie_form, String movie_type, String status) {
         this.id = id;
         this.name = name;
         this.director = director;
         this.release = release;
         this.duration = duration;
         this.moviecol = moviecol;
-        this.cast = cast;
+        this.casting = casting;
         this.thumbnail = thumbnail;
         this.movie_form = movie_form;
         this.movie_type = movie_type;
+        this.status = status;
     }
 
     public int getId() {
@@ -67,11 +69,11 @@ public class MovieModel extends BaseModel {
         this.director = director;
     }
 
-    public Date getRelease() {
+    public String getRelease() {
         return release;
     }
 
-    public void setRelease(Date release) {
+    public void setRelease(String release) {
         this.release = release;
     }
 
@@ -91,12 +93,12 @@ public class MovieModel extends BaseModel {
         this.moviecol = moviecol;
     }
 
-    public String getCast() {
-        return cast;
+    public String getCasting() {
+        return casting;
     }
 
-    public void setCast(String cast) {
-        this.cast = cast;
+    public void setCasting(String cast) {
+        this.casting = cast;
     }
 
     public String getThumbnail() {
@@ -123,18 +125,27 @@ public class MovieModel extends BaseModel {
         this.movie_type = movie_type;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
     public void readRecord(ResultSet resultSet) {
         try {
-            this.id = resultSet.getInt("id");
+            this.id = resultSet.getInt("id_movie");
             this.name = resultSet.getString("name");
             this.director = resultSet.getString("director");
-            this.release = resultSet.getDate("release");
+            this.release = resultSet.getString("release");
             this.duration = resultSet.getInt("duration");
             this.moviecol = resultSet.getString("moviecol");
-            this.cast = resultSet.getString("cast");
+            this.casting = resultSet.getString("casting");
             this.thumbnail = resultSet.getString("thumbnail");
             this.movie_form = resultSet.getString("movie_form");
             this.movie_type = resultSet.getString("movie_type");
+            this.status = resultSet.getString("status");
         } catch (SQLException ex) {
             Logger.getLogger(MovieModel.class.getName()).log(Level.SEVERE, null, ex);
         }

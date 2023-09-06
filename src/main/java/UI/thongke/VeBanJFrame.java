@@ -156,8 +156,7 @@ public class VeBanJFrame extends javax.swing.JFrame {
             .addGap(0, 630, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
+        jPanel4.setBackground(new java.awt.Color(204, 255, 255));
         jPanel4.setOpaque(false);
 
         btnInThongKe.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N

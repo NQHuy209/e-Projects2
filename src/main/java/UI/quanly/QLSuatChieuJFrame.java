@@ -62,6 +62,7 @@ public class QLSuatChieuJFrame extends javax.swing.JFrame {
             }
         });
 
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(290, 419));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -213,6 +214,8 @@ public class QLSuatChieuJFrame extends javax.swing.JFrame {
                 btnCollapseMouseReleased(evt);
             }
         });
+
+        jPanel2.setBackground(new java.awt.Color(204, 255, 255));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(52, 83, 104));

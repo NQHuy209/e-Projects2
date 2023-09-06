@@ -44,7 +44,7 @@ public class QLHoaDonJFrame extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         btnCollapse = new javax.swing.JLabel();
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(52, 83, 104));

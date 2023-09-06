@@ -62,7 +62,7 @@ public class DoanhthuJFrame extends javax.swing.JFrame {
             }
         });
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 255, 255));
 
         tblThongKe.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
         tblThongKe.setModel(new javax.swing.table.DefaultTableModel(
@@ -92,6 +92,7 @@ public class DoanhthuJFrame extends javax.swing.JFrame {
         tblThongKe.setSelectionBackground(new java.awt.Color(96, 116, 129));
         jScrollPane1.setViewportView(tblThongKe);
 
+        jPanel4.setBackground(new java.awt.Color(204, 255, 255));
         jPanel4.setOpaque(false);
 
         btnSua.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N

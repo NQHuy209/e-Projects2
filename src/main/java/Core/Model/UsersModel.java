@@ -24,11 +24,12 @@ public class UsersModel {
     private String email;
     private String username;
     private String password;
+    private String role;
 
     public UsersModel() {
     }
 
-    public UsersModel(int id_users, String name, String address, String phone_number, Date birthday, String gender, String email, String username, String password) {
+    public UsersModel(int id_users, String name, String address, String phone_number, Date birthday, String gender, String email, String username, String password, String role) {
         this.id_users = id_users;
         this.name = name;
         this.address = address;
@@ -38,6 +39,7 @@ public class UsersModel {
         this.email = email;
         this.username = username;
         this.password = password;
+        this.role = role;
     }
 
     public int getId_users() {
@@ -111,6 +113,14 @@ public class UsersModel {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
     
     
      public void readRecord(ResultSet resultSet) {
@@ -124,6 +134,7 @@ public class UsersModel {
             this.email = resultSet.getString("email");
             this.username = resultSet.getString("username");
             this.password = resultSet.getString("password");
+            this.role = resultSet.getString("role");
         } catch (SQLException ex) {
             Logger.getLogger(MovieModel.class.getName()).log(Level.SEVERE, null, ex);
         }

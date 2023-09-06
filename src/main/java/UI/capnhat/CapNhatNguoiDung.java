@@ -11,7 +11,7 @@ package UI.capnhat;
 public class CapNhatNguoiDung extends javax.swing.JFrame {
 
     /**
-     * Creates new form capnhatnguoidungjr
+     * Creates new form 
      */
     public CapNhatNguoiDung() {
         initComponents();
@@ -58,6 +58,7 @@ public class CapNhatNguoiDung extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(204, 255, 255));
+        jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jPanel1.setBackground(new java.awt.Color(204, 255, 255));
 
@@ -132,7 +133,7 @@ public class CapNhatNguoiDung extends javax.swing.JFrame {
         jLabel12.setText("Vai trò");
 
         jComboBox1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sếp", "Nhân viên" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Quản Lý", "Nhân viên" }));
 
         jLabel11.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel11.setText("Ngày vào làm");

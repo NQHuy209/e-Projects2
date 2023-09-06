@@ -4,7 +4,6 @@
  */
 package Core.DAO;
 
-import Core.DAO.inteface.IUserDAO;
 import Core.Model.UsersModel;
 import java.sql.Date;
 import java.sql.ResultSet;
@@ -18,14 +17,15 @@ import java.util.logging.Logger;
  *
  * @author Quang Huy
  */
-public class UsersDAO extends BaseDAO implements IUserDAO{
-
-    @Override
-    public List<UsersModel> UserAll() {
-        List<UsersModel>  userList = new ArrayList<>();                
+public class UsersDAO extends BaseDAO {
+    
+    public static List<UsersModel> userList;
+    
+    public static void UserAll() {
+        Connection();
+        userList = new ArrayList<>();                
         String sql = "select * from users";
         try {
-            Connection();
             statement = conn.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery();
             
@@ -37,12 +37,11 @@ public class UsersDAO extends BaseDAO implements IUserDAO{
         } catch (SQLException ex) {
             Logger.getLogger(UsersDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        return userList;
+        Disconnect();
     }
 
-    @Override
-    public void add(UsersModel usersModel) {
+    
+    public static void add(UsersModel usersModel) {
         
         String sql = "insert into users(name, address, phone_number, birthday, gender, email, username, password) values(?,?,?,?,?,?,?,?)";
         try {
@@ -64,8 +63,8 @@ public class UsersDAO extends BaseDAO implements IUserDAO{
         Disconnect();
     }
 
-    @Override
-    public void update(UsersModel updateUsersModel) {
+   
+    public static void update(UsersModel updateUsersModel) {
         
         String sql = "update users set name=?, address=?, phone_number=?, birthday=?, gender=?, email=?, username=?, password=? where id_users=?";
         try {
@@ -79,6 +78,8 @@ public class UsersDAO extends BaseDAO implements IUserDAO{
             statement.setString(6, updateUsersModel.getEmail());
             statement.setString(7, updateUsersModel.getUsername());
             statement.setString(8, updateUsersModel.getPassword());
+            statement.setString(9, updateUsersModel.getRole());
+
             
             statement.execute();
         } catch (SQLException ex) {
@@ -87,8 +88,8 @@ public class UsersDAO extends BaseDAO implements IUserDAO{
         Disconnect();
     }
 
-    @Override
-    public void delete(int id) {
+    
+    public static void delete(int id) {
         
         String sql = "delete from users where id_users =?";
         try {
@@ -103,53 +104,21 @@ public class UsersDAO extends BaseDAO implements IUserDAO{
         Disconnect();
     }
 
-    @Override
-    public UsersModel findByid(int id) {
-        UsersModel user = null;
-        
-        String sql = "select * from users where id_users = ?";
+    public static void findByName(String name) {
+        Connection();
+        userList = new ArrayList<>();
+        String sql = "select * from users where name LIKE '%" + name + "%'";
         try {
-            Connection();
             statement = conn.prepareStatement(sql);
-            statement.setInt(1,id);
-            
             ResultSet resultSet = statement.executeQuery();
-            if(resultSet.next()) {
-                user = new UsersModel();
+            while (resultSet.next()) {
+                UsersModel user = new UsersModel();
                 user.readRecord(resultSet);
+                userList.add(user);
             }
-            
-            
         } catch (SQLException ex) {
-            Logger.getLogger(UsersDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(MovieDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         Disconnect();
-        return user;
     }
-
-    @Override
-    public UsersModel findByPhone(String phone) {
-         UsersModel userbyphone = null;
-        
-        String sql = "select * from users where phone_number = ?";
-        try {
-            Connection();
-            statement = conn.prepareStatement(sql);
-            statement.setString(1,phone );
-            
-            ResultSet resultSet = statement.executeQuery();
-            if(resultSet.next()) {
-                userbyphone= new UsersModel();
-                userbyphone.readRecord(resultSet);
-            }
-            
-            
-        } catch (SQLException ex) {
-            Logger.getLogger(UsersDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        Disconnect();
-        return userbyphone;
-        
-    }
-    
 }

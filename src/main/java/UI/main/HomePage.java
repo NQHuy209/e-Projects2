@@ -6,23 +6,29 @@ package UI.main;
 
 import Core.ViewController;
 import Core.ViewPanel;
+import UI.banhang.TicketJFrame;
 import UI.quanly.QLHoaDonJFrame;
-import UI.quanly.QLKhachHangJFrame;
+import UI.quanly.QLNguoiDungJFrame;
 import UI.quanly.QLPhimJFrame;
 import UI.quanly.QLSuatChieuJFrame;
-import java.util.ArrayList;
-import java.util.List;
+import UI.thongke.DoanhthuJFrame;
+import UI.thongke.VeBanJFrame;
 
 /**
  *
  * @author Quang Huy
  */
 public class HomePage extends javax.swing.JFrame {
+    public static boolean load;
     private QLPhimJFrame QLPhimJFrame = new QLPhimJFrame();
     private QLHoaDonJFrame QLHoaDonJFrame = new QLHoaDonJFrame();
-    private QLKhachHangJFrame QLKhachHangJFrame = new QLKhachHangJFrame();
+    private QLNguoiDungJFrame QLNguoiDungJFrame = new QLNguoiDungJFrame();
     private QLSuatChieuJFrame QLSuatChieuJFrame = new QLSuatChieuJFrame();
-    /**
+    private TicketJFrame ticket = new TicketJFrame();
+    private DoanhthuJFrame doanhthu = new DoanhthuJFrame();
+    private VeBanJFrame veban = new VeBanJFrame();
+    
+    public static String pathFile = "C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\e-Projects2\\src\\main\\resoures\\image";    /**
      * Creates new form HomePage
      */
     public HomePage() {
@@ -35,6 +41,7 @@ public class HomePage extends javax.swing.JFrame {
 //        listItem.add(new ViewPanel("BanHang", jpnBanHang));
 //        listItem.add(new ViewPanel("ThongKe", jpnThongKe));
 //        controller.setEvent(listItem);
+        load = true;
     }
 
     /**
@@ -50,13 +57,13 @@ public class HomePage extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        btnPhim = new javax.swing.JButton();
+        btnVe = new javax.swing.JButton();
         btnNguoiDung = new javax.swing.JButton();
         btnHoaDon = new javax.swing.JButton();
         btnSuatChieu = new javax.swing.JButton();
         btnPhim2 = new javax.swing.JButton();
-        btnPhim3 = new javax.swing.JButton();
-        btnPhim6 = new javax.swing.JButton();
+        btnDoanhThu = new javax.swing.JButton();
+        btnVeBan = new javax.swing.JButton();
         btnCollapse3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -75,13 +82,13 @@ public class HomePage extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(204, 255, 255));
 
-        btnPhim.setBackground(new java.awt.Color(255, 102, 0));
-        btnPhim.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnPhim.setIcon(new javax.swing.ImageIcon("C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\project_ki2\\src\\main\\resoures\\icons\\tickets.png")); // NOI18N
-        btnPhim.setText("Vé");
-        btnPhim.addActionListener(new java.awt.event.ActionListener() {
+        btnVe.setBackground(new java.awt.Color(255, 102, 0));
+        btnVe.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnVe.setIcon(new javax.swing.ImageIcon("C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\project_ki2\\src\\main\\resoures\\icons\\tickets.png")); // NOI18N
+        btnVe.setText("Vé");
+        btnVe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPhimActionPerformed(evt);
+                btnVeActionPerformed(evt);
             }
         });
 
@@ -125,23 +132,23 @@ public class HomePage extends javax.swing.JFrame {
             }
         });
 
-        btnPhim3.setBackground(new java.awt.Color(255, 102, 0));
-        btnPhim3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnPhim3.setIcon(new javax.swing.ImageIcon("C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\project_ki2\\src\\main\\resoures\\icons\\tickets.png")); // NOI18N
-        btnPhim3.setText("Doanh Thu");
-        btnPhim3.addActionListener(new java.awt.event.ActionListener() {
+        btnDoanhThu.setBackground(new java.awt.Color(255, 102, 0));
+        btnDoanhThu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnDoanhThu.setIcon(new javax.swing.ImageIcon("C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\project_ki2\\src\\main\\resoures\\icons\\tickets.png")); // NOI18N
+        btnDoanhThu.setText("Doanh Thu");
+        btnDoanhThu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPhim3ActionPerformed(evt);
+                btnDoanhThuActionPerformed(evt);
             }
         });
 
-        btnPhim6.setBackground(new java.awt.Color(255, 102, 0));
-        btnPhim6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnPhim6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\project_ki2\\src\\main\\resoures\\icons\\tickets.png")); // NOI18N
-        btnPhim6.setText("Vé Bán");
-        btnPhim6.addActionListener(new java.awt.event.ActionListener() {
+        btnVeBan.setBackground(new java.awt.Color(255, 102, 0));
+        btnVeBan.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnVeBan.setIcon(new javax.swing.ImageIcon("C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\project_ki2\\src\\main\\resoures\\icons\\tickets.png")); // NOI18N
+        btnVeBan.setText("Vé Bán");
+        btnVeBan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPhim6ActionPerformed(evt);
+                btnVeBanActionPerformed(evt);
             }
         });
 
@@ -180,7 +187,7 @@ public class HomePage extends javax.swing.JFrame {
                                 .addComponent(btnSuatChieu, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(153, 153, 153)
-                                .addComponent(btnPhim, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnVe, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE))
@@ -193,8 +200,8 @@ public class HomePage extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnPhim3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnPhim6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnDoanhThu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnVeBan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(34, 34, 34))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -209,9 +216,9 @@ public class HomePage extends javax.swing.JFrame {
                         .addGap(32, 32, 32)
                         .addComponent(jLabel3)
                         .addGap(33, 33, 33)
-                        .addComponent(btnPhim3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnDoanhThu, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35)
-                        .addComponent(btnPhim6, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnVeBan, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(jLabel1)
@@ -222,7 +229,7 @@ public class HomePage extends javax.swing.JFrame {
                             .addComponent(btnSuatChieu, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(37, 37, 37)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnPhim, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnVe, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(35, Short.MAX_VALUE))
             .addComponent(btnCollapse3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -272,13 +279,15 @@ public class HomePage extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnPhim6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPhim6ActionPerformed
+    private void btnVeBanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVeBanActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnPhim6ActionPerformed
+        veban.show();
+    }//GEN-LAST:event_btnVeBanActionPerformed
 
-    private void btnPhim3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPhim3ActionPerformed
+    private void btnDoanhThuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoanhThuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnPhim3ActionPerformed
+        doanhthu.show();
+    }//GEN-LAST:event_btnDoanhThuActionPerformed
 
     private void btnPhim2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPhim2ActionPerformed
         // TODO add your handling code here:
@@ -297,12 +306,13 @@ public class HomePage extends javax.swing.JFrame {
 
     private void btnNguoiDungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNguoiDungActionPerformed
         // TODO add your handling code here:
-        QLKhachHangJFrame.setVisible(true);
+        QLNguoiDungJFrame.setVisible(true);
     }//GEN-LAST:event_btnNguoiDungActionPerformed
 
-    private void btnPhimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPhimActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnPhimActionPerformed
+    private void btnVeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVeActionPerformed
+        // TODO add your handling code here:\
+        ticket.show();
+    }//GEN-LAST:event_btnVeActionPerformed
 
     private void btnCollapse3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCollapse3MouseReleased
         // TODO add your handling code here:
@@ -344,19 +354,14 @@ public class HomePage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel btnCollapse;
-    private javax.swing.JLabel btnCollapse1;
     private javax.swing.JLabel btnCollapse3;
+    private javax.swing.JButton btnDoanhThu;
     private javax.swing.JButton btnHoaDon;
     private javax.swing.JButton btnNguoiDung;
-    private javax.swing.JButton btnPhim;
-    private javax.swing.JButton btnPhim1;
     private javax.swing.JButton btnPhim2;
-    private javax.swing.JButton btnPhim3;
-    private javax.swing.JButton btnPhim4;
-    private javax.swing.JButton btnPhim5;
-    private javax.swing.JButton btnPhim6;
     private javax.swing.JButton btnSuatChieu;
+    private javax.swing.JButton btnVe;
+    private javax.swing.JButton btnVeBan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
