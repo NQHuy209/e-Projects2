@@ -5,7 +5,6 @@
 package UI.capnhat;
 
 import Core.DAO.UsersDAO;
-import java.time.LocalDate;
 import Core.Model.UsersModel;
 import java.time.Instant;
 import java.time.LocalDate;
@@ -335,9 +334,10 @@ public class CapNhatNguoiDung extends javax.swing.JFrame {
 
     private void btnLuuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuActionPerformed
         if (checkNull()) {
-            UsersModel usersModel = new UsersModel(0, txtName.getText(), txtAddress.getText(), txtPhone.getText(),  Date.from(Instant.MIN) , rbGender.getText(), txtEmail.getText(),txtUser.getText(), txtPass.getText(), cbRole.getItemAt(cbRole.getSelectedIndex())); 
+            UsersModel usersModel = new UsersModel(id_users, txtName.getText(), txtAddress.getText(), txtPhone.getText(),  LocalDate.now() + "" , rbGender.getText(), txtEmail.getText(),txtUser.getText(), txtPass.getText(), cbRole.getItemAt(cbRole.getSelectedIndex())); 
             UsersDAO.update(usersModel);
-        }  
+        }
+        
     }//GEN-LAST:event_btnLuuActionPerformed
 
     /**

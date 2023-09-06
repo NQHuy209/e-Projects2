@@ -87,7 +87,7 @@ public class UsersDAO extends BaseDAO {
             statement.setString(1, usersModel.getName() );
             statement.setString(2, usersModel.getAddress());
             statement.setString(3, usersModel.getPhone_number());
-            statement.setDate(4, (Date) usersModel.getBirthday());
+            statement.setString(4, usersModel.getBirthday());
             statement.setString(5, usersModel.getGender());
             statement.setString(6, usersModel.getEmail());
             statement.setString(7, usersModel.getUsername());
@@ -102,22 +102,20 @@ public class UsersDAO extends BaseDAO {
 
    
     public static void update(UsersModel updateUsersModel) {
-        
-        String sql = "update users set name=?, address=?, phone_number=?, birthday=?, gender=?, email=?, username=?, password=? where id_users=?";
+        Connection();
+        String sql = "update users set name=?, address=?, phone_number=?, birthday=?, gender=?, email=?, username=?, password=?, role=? where id_users=?";
         try {
-            Connection();
             statement = conn.prepareStatement(sql);
-             statement.setString(1, updateUsersModel.getName() );
+            statement.setString(1, updateUsersModel.getName() );
             statement.setString(2, updateUsersModel.getAddress());
             statement.setString(3, updateUsersModel.getPhone_number());
-            statement.setDate(4, (Date) updateUsersModel.getBirthday());
+            statement.setString(4, updateUsersModel.getBirthday());
             statement.setString(5, updateUsersModel.getGender());
             statement.setString(6, updateUsersModel.getEmail());
             statement.setString(7, updateUsersModel.getUsername());
             statement.setString(8, updateUsersModel.getPassword());
             statement.setString(9, updateUsersModel.getRole());
-
-            
+            statement.setInt(10, updateUsersModel.getId_users());
             statement.execute();
         } catch (SQLException ex) {
             Logger.getLogger(UsersDAO.class.getName()).log(Level.SEVERE, null, ex);

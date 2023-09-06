@@ -19,7 +19,7 @@ public class UsersModel {
     private String name;
     private String address;
     private String phone_number;
-    private Date birthday;
+    private String birthday;
     private String gender;
     private String email;
     private String username;
@@ -29,7 +29,7 @@ public class UsersModel {
     public UsersModel() {
     }
 
-    public UsersModel(int id_users, String name, String address, String phone_number, Date birthday, String gender, String email, String username, String password, String role) {
+    public UsersModel(int id_users, String name, String address, String phone_number, String birthday, String gender, String email, String username, String password, String role) {
         this.id_users = id_users;
         this.name = name;
         this.address = address;
@@ -74,11 +74,11 @@ public class UsersModel {
         this.phone_number = phone_number;
     }
 
-    public Date getBirthday() {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(Date birthday) {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
@@ -129,7 +129,7 @@ public class UsersModel {
             this.name = resultSet.getString("name");
             this.address = resultSet.getString("address");
             this.phone_number = resultSet.getString("phone_number");
-            this.birthday = resultSet.getDate("birthday");
+            this.birthday = resultSet.getString("birthday");
             this.gender = resultSet.getString("gender");
             this.email = resultSet.getString("email");
             this.username = resultSet.getString("username");

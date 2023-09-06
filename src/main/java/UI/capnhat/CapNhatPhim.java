@@ -394,8 +394,9 @@ public class CapNhatPhim extends javax.swing.JFrame {
 
     private void btnLuuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuActionPerformed
         if (checkNull()) {
-            MovieModel movieModel = new MovieModel(0, txtName.getText(), txtDirector.getText(), LocalDate.now() + "", Integer.parseInt(txtDuration.getText()), txtCol.getText(), txtCast.getText(), thumb.getText(), cbForm.getItemAt(cbForm.getSelectedIndex()), txtType.getText(), cbStatus.getItemAt(cbStatus.getSelectedIndex()));
+            MovieModel movieModel = new MovieModel(id, txtName.getText(), txtDirector.getText(), LocalDate.now() + "", Integer.parseInt(txtDuration.getText()), txtCol.getText(), txtCast.getText(), thumb.getText(), cbForm.getItemAt(cbForm.getSelectedIndex()), txtType.getText(), cbStatus.getItemAt(cbStatus.getSelectedIndex()));
             MovieDAO.update(movieModel);
+            
         }    }//GEN-LAST:event_btnLuuActionPerformed
 
     /**

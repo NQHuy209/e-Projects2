@@ -265,7 +265,19 @@ public class QLNguoiDungJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSearchActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        capnhat.show();
+        CapNhatNguoiDung.id_users = UsersDAO.userList.get(tblC.getSelectedRow()).getId_users();
+        CapNhatNguoiDung.name = UsersDAO.userList.get(tblC.getSelectedRow()).getName();
+        CapNhatNguoiDung.address = UsersDAO.userList.get(tblC.getSelectedRow()).getAddress();
+        CapNhatNguoiDung.phone_number = UsersDAO.userList.get(tblC.getSelectedRow()).getPhone_number();
+        CapNhatNguoiDung.birthday = UsersDAO.userList.get(tblC.getSelectedRow()).getBirthday();
+        CapNhatNguoiDung.gender = UsersDAO.userList.get(tblC.getSelectedRow()).getGender();
+        CapNhatNguoiDung.email = UsersDAO.userList.get(tblC.getSelectedRow()).getEmail();
+        CapNhatNguoiDung.username = UsersDAO.userList.get(tblC.getSelectedRow()).getUsername();
+        CapNhatNguoiDung.password = UsersDAO.userList.get(tblC.getSelectedRow()).getPassword();
+        CapNhatNguoiDung.role = UsersDAO.userList.get(tblC.getSelectedRow()).getRole();
+
+        
+        new CapNhatNguoiDung().setVisible(true);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
