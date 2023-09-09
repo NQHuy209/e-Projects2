@@ -9,6 +9,7 @@ import Core.Model.MovieModel;
 import UI.capnhat.CapNhatPhim;
 import UI.main.HomePage;
 import UI.them.ThemPhim;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -16,7 +17,6 @@ import javax.swing.table.DefaultTableModel;
  * @author HieuPC
  */
 public class QLPhimJFrame extends javax.swing.JFrame {
-    private ThemPhim themPhim = new ThemPhim();
     DefaultTableModel tableModel;
 
 
@@ -279,29 +279,40 @@ public class QLPhimJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSearchActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        CapNhatPhim.id = MovieDAO.movieList.get(tblMovie.getSelectedRow()).getId();
-        CapNhatPhim.name = MovieDAO.movieList.get(tblMovie.getSelectedRow()).getName();
-        CapNhatPhim.director = MovieDAO.movieList.get(tblMovie.getSelectedRow()).getDirector();
-        CapNhatPhim.release = MovieDAO.movieList.get(tblMovie.getSelectedRow()).getRelease();
-        CapNhatPhim.duration = MovieDAO.movieList.get(tblMovie.getSelectedRow()).getDuration();
-        CapNhatPhim.moviecol = MovieDAO.movieList.get(tblMovie.getSelectedRow()).getMoviecol();
-        CapNhatPhim.casting = MovieDAO.movieList.get(tblMovie.getSelectedRow()).getCasting();
-        CapNhatPhim.thumbnail = MovieDAO.movieList.get(tblMovie.getSelectedRow()).getThumbnail();
-        CapNhatPhim.movie_form = MovieDAO.movieList.get(tblMovie.getSelectedRow()).getMovie_form();
-        CapNhatPhim.movie_type = MovieDAO.movieList.get(tblMovie.getSelectedRow()).getMovie_type();
-        CapNhatPhim.status = MovieDAO.movieList.get(tblMovie.getSelectedRow()).getStatus();
+        if (tblMovie.getSelectedRow() >= 0) {
+            CapNhatPhim.id = MovieDAO.movieList.get(tblMovie.getSelectedRow()).getId();
+            CapNhatPhim.name = MovieDAO.movieList.get(tblMovie.getSelectedRow()).getName();
+            CapNhatPhim.director = MovieDAO.movieList.get(tblMovie.getSelectedRow()).getDirector();
+            CapNhatPhim.release = MovieDAO.movieList.get(tblMovie.getSelectedRow()).getRelease();
+            CapNhatPhim.duration = MovieDAO.movieList.get(tblMovie.getSelectedRow()).getDuration();
+            CapNhatPhim.moviecol = MovieDAO.movieList.get(tblMovie.getSelectedRow()).getMoviecol();
+            CapNhatPhim.casting = MovieDAO.movieList.get(tblMovie.getSelectedRow()).getCasting();
+            CapNhatPhim.thumbnail = MovieDAO.movieList.get(tblMovie.getSelectedRow()).getThumbnail();
+            CapNhatPhim.movie_form = MovieDAO.movieList.get(tblMovie.getSelectedRow()).getMovie_form();
+            CapNhatPhim.movie_type = MovieDAO.movieList.get(tblMovie.getSelectedRow()).getMovie_type();
+            CapNhatPhim.status = MovieDAO.movieList.get(tblMovie.getSelectedRow()).getStatus();
 
-        new CapNhatPhim().setVisible(true);
+            new CapNhatPhim().setVisible(true);
+            this.setVisible(false);
+        }
+        else {
+            JOptionPane.showMessageDialog(this, "Vui lòng chọn phim cần update", null, JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        MovieDAO.delete(MovieDAO.movieList.get(tblMovie.getSelectedRow()).getId());
-        showDataTable();
+        if (tblMovie.getSelectedRow() >= 0) {
+            MovieDAO.delete(MovieDAO.movieList.get(tblMovie.getSelectedRow()).getId());
+            JOptionPane.showMessageDialog(this, "Xóa thành công", null, JOptionPane.INFORMATION_MESSAGE);
+            MovieDAO.MovieAll();
+            showDataTable();
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        themPhim.show();
+        new ThemPhim().setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_btnAddActionPerformed
 
     /**

@@ -5,7 +5,6 @@
 package Core.DAO;
 
 import Core.Model.UsersModel;
-import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -21,7 +20,13 @@ public class UsersDAO extends BaseDAO {
 
     public static int id;
     public static String username;
-    public static String password;
+    public static String name;
+    public static String address;
+    public static String phone_number;
+    public static String birthday;
+    public static String gender;
+    public static String email;
+    public static String role;
     public static UsersDAO user = new UsersDAO();
 
     public static boolean checkAcc(JFrame frame, JTextField jTextField_UserName, JPasswordField jPasswordField1) {
@@ -38,12 +43,12 @@ public class UsersDAO extends BaseDAO {
                     username = set.getString("username");
                     check = true;
 
-                }else{
-                    check = false;
+                } else {
+                    check = true;
                     jPasswordField1.requestFocus();
-                    JOptionPane.showMessageDialog(frame, "Mật khẩu chưa chính xác",null,JOptionPane.WARNING_MESSAGE);
+                    JOptionPane.showMessageDialog(frame, "Mật khẩu chưa chính xác", null, JOptionPane.WARNING_MESSAGE);
                 }
-            }else {
+            } else {
                 check = false;
                 jTextField_UserName.requestFocus();
                 JOptionPane.showMessageDialog(frame, "Tên người dùng không tồn tại", null, JOptionPane.WARNING_MESSAGE);
@@ -54,6 +59,28 @@ public class UsersDAO extends BaseDAO {
         Disconnect();
         return check;
 
+    }
+    public static void signUp(UsersModel usersModel){
+        String sql = "insert into users(name, address, phone_number, birthday, gender, email, username, password, role) values(?,?,?,?,?,?,?,?,?)";
+        try {
+            Connection();
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, usersModel.getName() );
+            statement.setString(2, usersModel.getAddress());
+            statement.setString(3, usersModel.getPhone_number());
+            statement.setString(4, usersModel.getBirthday());
+            statement.setString(5, usersModel.getGender());
+            statement.setString(6, usersModel.getEmail());
+            statement.setString(7, usersModel.getUsername());
+            statement.setString(8, usersModel.getPassword());
+            statement.setString(9, usersModel.getRole());
+
+            
+            statement.execute();
+        } catch (SQLException ex) {
+            Logger.getLogger(UsersDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Disconnect();
     }
     
     public static List<UsersModel> userList;

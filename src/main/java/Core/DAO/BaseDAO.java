@@ -4,12 +4,14 @@
  */
 package Core.DAO;
 
+import java.awt.Image;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -22,6 +24,8 @@ public class BaseDAO {
     static final String DB_PWD = "12345678";
     static Connection conn = null;
     static PreparedStatement statement = null;
+    
+    public static String pathFolder = "C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\e-Projects2\\src\\main\\resoures\\image\\";
 
     public static void Connection() {
         try {
@@ -46,5 +50,13 @@ public class BaseDAO {
                 Logger.getLogger(BaseDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+    
+    public static ImageIcon resizeImage(byte[] pic) {
+        ImageIcon myImage = new ImageIcon(pic);
+        Image img = myImage.getImage();
+        Image img2 = img.getScaledInstance(155, 190, Image.SCALE_SMOOTH);
+        ImageIcon image = new ImageIcon(img2);
+        return image;
     }
 }

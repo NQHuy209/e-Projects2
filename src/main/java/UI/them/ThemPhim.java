@@ -4,14 +4,17 @@
  */
 package UI.them;
 
+import Core.DAO.BaseDAO;
 import Core.DAO.MovieDAO;
 import Core.Model.MovieModel;
+import UI.quanly.QLPhimJFrame;
 import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -35,14 +38,6 @@ public class ThemPhim extends javax.swing.JFrame {
             return false;
         }
         return true;
-    }
-
-    public ImageIcon resizeImage(byte[] pic) {
-        ImageIcon myImage = new ImageIcon(pic);
-        Image img = myImage.getImage();
-        Image img2 = img.getScaledInstance(155, 190, Image.SCALE_SMOOTH);
-        ImageIcon image = new ImageIcon(img2);
-        return image;
     }
 
     /**
@@ -82,6 +77,11 @@ public class ThemPhim extends javax.swing.JFrame {
 
         setAutoRequestFocus(false);
         setBackground(new java.awt.Color(204, 255, 255));
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\project_ki2\\src\\main\\resoures\\icons\\negative-film.png")); // NOI18N
         jLabel1.setText("jLabel1");
@@ -288,13 +288,17 @@ public class ThemPhim extends javax.swing.JFrame {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         if (checkNull()) {
-            MovieModel movieModel = new MovieModel(0, txtName.getText(), txtDirector.getText(), LocalDate.now() + "", Integer.parseInt(txtDuration.getText()), txtCol.getText(), txtCast.getText(), thumb.getText(), cbForm.getItemAt(cbForm.getSelectedIndex()), txtType.getText(), cbStatus.getItemAt(cbStatus.getSelectedIndex()));
+            String date = dcRelease.getDate().toInstant().atZone(ZoneId.systemDefault()).toString().split("T")[0];
+            MovieModel movieModel = new MovieModel(0, txtName.getText(), txtDirector.getText(), date, Integer.parseInt(txtDuration.getText()), txtCol.getText(), txtCast.getText(), thumb.getText(), cbForm.getItemAt(cbForm.getSelectedIndex()), txtType.getText(), cbStatus.getItemAt(cbStatus.getSelectedIndex()));
             MovieDAO.add(movieModel);
+            JOptionPane.showMessageDialog(this, "Thêm thành công", null, JOptionPane.INFORMATION_MESSAGE);
+            new QLPhimJFrame().setVisible(true);
+            this.setVisible(false);
         }
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnChonanhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChonanhActionPerformed
-        JFileChooser fchoser = new JFileChooser();
+        JFileChooser fchoser = new JFileChooser(BaseDAO.pathFolder);
         fchoser.showOpenDialog(null);
         File file = fchoser.getSelectedFile();
 
@@ -307,7 +311,7 @@ public class ThemPhim extends javax.swing.JFrame {
                 baos.write(buf, 0, readnum);
             }
             byte[] pimage = baos.toByteArray();
-            thumb.setIcon(resizeImage(pimage));
+            thumb.setIcon(BaseDAO.resizeImage(pimage));
             thumb.setText(file.getName());
         } catch (Exception e) {
 
@@ -339,6 +343,11 @@ public class ThemPhim extends javax.swing.JFrame {
         cbStatus.setSelectedIndex(0);
 
     }//GEN-LAST:event_btnResetActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        new QLPhimJFrame().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

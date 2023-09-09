@@ -4,17 +4,19 @@
  */
 package UI.capnhat;
 
+import Core.DAO.BaseDAO;
 import Core.DAO.MovieDAO;
 import Core.Model.MovieModel;
+import UI.quanly.QLPhimJFrame;
 import java.awt.Image;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-
 
 /**
  *
@@ -36,10 +38,10 @@ public class CapNhatPhim extends javax.swing.JFrame {
     public static String movie_form;
     public static String movie_type;
     public static String status;
-    
+
     public CapNhatPhim() {
         initComponents();
-        
+
         txtName.setText(name);
         txtCast.setText(casting);
         txtDirector.setText(director);
@@ -51,21 +53,13 @@ public class CapNhatPhim extends javax.swing.JFrame {
         txtType.setText(movie_type);
         cbStatus.setSelectedIndex(0);
     }
-    
+
     public boolean checkNull() {
         if (txtName.getText().isBlank() || txtDuration.getText().isBlank() || thumb.getText().isBlank() || txtCast.getText().isBlank() || txtDirector.getText().isBlank() || txtCol.getText().isBlank() || txtType.getText().isBlank() || dcRelease.getDate() == null) {
             JOptionPane.showMessageDialog(this, "Xin vui lòng nhập đầy đủ thông tin.", null, JOptionPane.INFORMATION_MESSAGE);
             return false;
         }
         return true;
-    }
-
-    public ImageIcon resizeImage(byte[] pic) {
-        ImageIcon myImage = new ImageIcon(pic);
-        Image img = myImage.getImage();
-        Image img2 = img.getScaledInstance(155, 190, Image.SCALE_SMOOTH);
-        ImageIcon image = new ImageIcon(img2);
-        return image;
     }
 
     /**
@@ -130,7 +124,11 @@ public class CapNhatPhim extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
 
         jPanel4.setBackground(new java.awt.Color(204, 255, 255));
 
@@ -201,7 +199,7 @@ public class CapNhatPhim extends javax.swing.JFrame {
         jLabel6.setText("Nhà sản xuất");
 
         cbForm.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cbForm.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2D", "3D" }));
+        cbForm.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2D", "3D", "2D, 3D", "2D, 3D,IMAX", " " }));
 
         cbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sắp chiếu", "Đang chiếu", "Đã chiếu" }));
 
@@ -372,7 +370,7 @@ public class CapNhatPhim extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnChonanhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnChonanhActionPerformed
-        JFileChooser fchoser = new JFileChooser();
+        JFileChooser fchoser = new JFileChooser(BaseDAO.pathFolder);
         fchoser.showOpenDialog(null);
         File file = fchoser.getSelectedFile();
 
@@ -385,7 +383,7 @@ public class CapNhatPhim extends javax.swing.JFrame {
                 baos.write(buf, 0, readnum);
             }
             byte[] pimage = baos.toByteArray();
-            thumb.setIcon(resizeImage(pimage));
+            thumb.setIcon(BaseDAO.resizeImage(pimage));
             thumb.setText(file.getName());
         } catch (Exception e) {
 
@@ -394,10 +392,19 @@ public class CapNhatPhim extends javax.swing.JFrame {
 
     private void btnLuuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuActionPerformed
         if (checkNull()) {
-            MovieModel movieModel = new MovieModel(id, txtName.getText(), txtDirector.getText(), LocalDate.now() + "", Integer.parseInt(txtDuration.getText()), txtCol.getText(), txtCast.getText(), thumb.getText(), cbForm.getItemAt(cbForm.getSelectedIndex()), txtType.getText(), cbStatus.getItemAt(cbStatus.getSelectedIndex()));
+            String date = dcRelease.getDate().toInstant().atZone(ZoneId.systemDefault()).toString().split("T")[0];
+            MovieModel movieModel = new MovieModel(id, txtName.getText(), txtDirector.getText(), date, Integer.parseInt(txtDuration.getText()), txtCol.getText(), txtCast.getText(), thumb.getText(), cbForm.getItemAt(cbForm.getSelectedIndex()), txtType.getText(), cbStatus.getItemAt(cbStatus.getSelectedIndex()));
             MovieDAO.update(movieModel);
-            
-        }    }//GEN-LAST:event_btnLuuActionPerformed
+            JOptionPane.showMessageDialog(this, "Cập nhật thành công", null, JOptionPane.INFORMATION_MESSAGE);
+            new QLPhimJFrame().setVisible(true);
+            this.setVisible(false);
+        }
+    }//GEN-LAST:event_btnLuuActionPerformed
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
+        new QLPhimJFrame().setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_formWindowClosing
 
     /**
      * @param args the command line arguments

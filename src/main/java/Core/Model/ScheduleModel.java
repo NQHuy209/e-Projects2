@@ -4,52 +4,65 @@
  */
 package Core.Model;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Time;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Quang Huy
  */
 public class ScheduleModel {
-    private int schedule;
-    private Date day;
-    private Time showtime;
+    private int id_schedule;
+    private String day;
+    private String showtime;
 
     public ScheduleModel() {
     }
 
-    public ScheduleModel(int schedule, Date day, Time showtime) {
-        this.schedule = schedule;
+    public ScheduleModel(int id_schedule, String day, String showtime) {
+        this.id_schedule = id_schedule;
         this.day = day;
         this.showtime = showtime;
     }
 
-    public int getSchedule() {
-        return schedule;
+    public int getId_schedule() {
+        return id_schedule;
     }
 
-    public void setSchedule(int schedule) {
-        this.schedule = schedule;
+    public void setId_schedule(int id_schedule) {
+        this.id_schedule = id_schedule;
     }
 
-    public Date getDay() {
+    public String getDay() {
         return day;
     }
 
-    public void setDay(Date day) {
+    public void setDay(String day) {
         this.day = day;
     }
 
-    public Time getShowtime() {
+    public String getShowtime() {
         return showtime;
     }
 
-    public void setShowtime(Time showtime) {
+    public void setShowtime(String showtime) {
         this.showtime = showtime;
     }
 
-    
+    public void readRecord(ResultSet resultSet) {
+        try {
+            this.id_schedule = resultSet.getInt("id_schedule");
+            this.day = resultSet.getString("day");
+            this.showtime = resultSet.getString("showtime");
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(MovieModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     
     

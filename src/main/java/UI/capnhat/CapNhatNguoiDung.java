@@ -8,6 +8,7 @@ import Core.DAO.UsersDAO;
 import Core.Model.UsersModel;
 import java.time.Instant;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 import javax.swing.JOptionPane;
 
@@ -89,8 +90,6 @@ public class CapNhatNguoiDung extends javax.swing.JFrame {
         txtAddress = new javax.swing.JTextField();
         txtPass = new javax.swing.JTextField();
         dcBirth = new com.toedter.calendar.JDateChooser();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(204, 255, 255));
         jPanel2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -274,10 +273,11 @@ public class CapNhatNguoiDung extends javax.swing.JFrame {
                             .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(31, 31, 31)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dcBirth, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(dcBirth, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(26, 26, 26)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -334,7 +334,8 @@ public class CapNhatNguoiDung extends javax.swing.JFrame {
 
     private void btnLuuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuActionPerformed
         if (checkNull()) {
-            UsersModel usersModel = new UsersModel(id_users, txtName.getText(), txtAddress.getText(), txtPhone.getText(),  LocalDate.now() + "" , rbGender.getText(), txtEmail.getText(),txtUser.getText(), txtPass.getText(), cbRole.getItemAt(cbRole.getSelectedIndex())); 
+            String date = dcBirth.getDate().toInstant().atZone(ZoneId.systemDefault()).toString().split("T")[0];
+            UsersModel usersModel = new UsersModel(id_users, txtName.getText(), txtAddress.getText(), txtPhone.getText(), date , rbGender.getText(), txtEmail.getText(),txtUser.getText(), txtPass.getText(), cbRole.getItemAt(cbRole.getSelectedIndex())); 
             UsersDAO.update(usersModel);
         }
         

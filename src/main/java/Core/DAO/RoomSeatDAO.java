@@ -22,10 +22,9 @@ import java.util.logging.Logger;
  *
  * @author Quang Huy
  */
-public class RoomSeatDAO extends BaseDAO implements IRoomSeatDAO {
+public class RoomSeatDAO extends BaseDAO {
 
-    @Override
-    public List<RoomSeatModel> rSeatList() {
+    public static List<RoomSeatModel> rSeatList() {
         List<RoomSeatModel> rSeatList = new ArrayList<>();
      
         String sql = "SELECT * FROM room_seat";
@@ -48,7 +47,6 @@ public class RoomSeatDAO extends BaseDAO implements IRoomSeatDAO {
 
     }
     
-    @Override
     public void add(RoomSeatModel roomS) {
         try {
             Connection();
@@ -63,7 +61,6 @@ public class RoomSeatDAO extends BaseDAO implements IRoomSeatDAO {
         Disconnect();
     }
 
-    @Override
     public void update(RoomSeatModel updateRoom) {
         RoomSeatModel roomS = new RoomSeatModel();
         try {
@@ -79,7 +76,6 @@ public class RoomSeatDAO extends BaseDAO implements IRoomSeatDAO {
         Disconnect();
     }
     
-    @Override
     public void detele(int id) {
         RoomSeatModel roomS = new RoomSeatModel();
         try {
@@ -93,5 +89,4 @@ public class RoomSeatDAO extends BaseDAO implements IRoomSeatDAO {
         } catch (SQLException e) {
         }
     }
-
 }

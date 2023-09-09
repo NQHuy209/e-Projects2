@@ -15,16 +15,20 @@ public class RoomSeatModel {
     private int id_room_seat;
     private String seat_column;
     private String seat_row;
-    private int id_room;
+    private String seat_code;
+    private String type;
+    private int price;
 
-    public RoomSeatModel() {
-    }
-
-    public RoomSeatModel(int id_room_seat, String seat_column, String seat_row, int id_room) {
+    public RoomSeatModel(int id_room_seat, String seat_column, String seat_row, String seat_code, String type, int price) {
         this.id_room_seat = id_room_seat;
         this.seat_column = seat_column;
         this.seat_row = seat_row;
-        this.id_room = id_room;
+        this.seat_code = seat_code;
+        this.type = type;
+        this.price = price;
+    }
+
+    public RoomSeatModel() {
     }
 
     public int getId_room_seat() {
@@ -51,13 +55,32 @@ public class RoomSeatModel {
         this.seat_row = seat_row;
     }
 
-    public int getId_room() {
-        return id_room;
+    public String getSeat_code() {
+        return seat_code;
     }
 
-    public void setId_room(int id_room) {
-        this.id_room = id_room;
+    public void setSeat_code(String seat_code) {
+        this.seat_code = seat_code;
     }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    
+    
     
      public void readRecord(ResultSet resultSet){
     
@@ -65,7 +88,9 @@ public class RoomSeatModel {
             this.id_room_seat = resultSet.getInt("id_room_seat");
             this.seat_column = resultSet.getString("seat_column");
             this.seat_row = resultSet.getString("seat_row");
-            this.id_room = resultSet.getInt("id_room");
+            this.seat_code = resultSet.getString("seat_code");
+            this.type = resultSet.getString("type");
+            this.price = resultSet.getInt("price");
         } catch (SQLException e) {
         }
         

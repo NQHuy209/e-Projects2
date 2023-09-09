@@ -40,6 +40,25 @@ public class MovieDAO extends BaseDAO {
         }
         Disconnect();
     }
+    
+    public static List<MovieModel> getMovieStatus() {
+        List<MovieModel> movieStatus = new ArrayList<>();
+        Connection();
+        String sql = "select * from movie where status = 'Đang chiếu'";
+        try {
+            statement = conn.prepareStatement(sql);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                MovieModel movie = new MovieModel();
+                movie.readRecord(resultSet);
+                movieStatus.add(movie);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(MovieDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Disconnect();
+        return movieStatus;
+    }
 
     public static void findByName(String name) {
         
@@ -63,7 +82,7 @@ public class MovieDAO extends BaseDAO {
 
     public static void add(MovieModel movieModel) {
         Connection();
-        String sql = "insert into movie(name, director, release, duration, moviecol, cast, thumbnail, movie_form, movie_type, status) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO movie(name, director, movie.release, duration, moviecol, casting, thumbnail, movie_form, movie_type, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             statement = conn.prepareStatement(sql);
             statement.setString(1, movieModel.getName());
@@ -86,7 +105,7 @@ public class MovieDAO extends BaseDAO {
 
     public static void update(MovieModel updateMovieModel) {
         Connection();
-        String sql = "UPDATE movie SET name =?, director =?, release =?, duration =?, moviecol =?, casting =?, thumbnail =?, movie_form =?, movie_type =?, status =? WHERE id_movie =?";
+        String sql = "UPDATE movie SET name =?, director =?, movie.release =?, duration =?, moviecol =?, casting =?, thumbnail =?, movie_form =?, movie_type =?, status =? WHERE id_movie =?";
         try {
             statement = conn.prepareStatement(sql);
             statement.setString(1, updateMovieModel.getName());

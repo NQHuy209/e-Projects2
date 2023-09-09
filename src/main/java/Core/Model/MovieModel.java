@@ -14,7 +14,7 @@ import java.util.logging.Logger;
  *
  * @author Quang Huy
  */
-public class MovieModel extends BaseModel {
+public class MovieModel {
 
     private int id;
     private String name;
@@ -150,6 +150,9 @@ public class MovieModel extends BaseModel {
             Logger.getLogger(MovieModel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "MovieModel{" + "id=" + id + ", name=" + name + ", director=" + director + ", release=" + release + ", duration=" + duration + ", moviecol=" + moviecol + ", casting=" + casting + ", thumbnail=" + thumbnail + ", movie_form=" + movie_form + ", movie_type=" + movie_type + ", status=" + status + '}';
+    }
 }

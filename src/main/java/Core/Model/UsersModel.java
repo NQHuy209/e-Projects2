@@ -123,7 +123,7 @@ public class UsersModel {
     }
     
     
-     public void readRecord(ResultSet resultSet) {
+    public void readRecord(ResultSet resultSet) {
         try {
             this.id_users = resultSet.getInt("id_users");
             this.name = resultSet.getString("name");
