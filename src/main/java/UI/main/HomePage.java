@@ -4,6 +4,7 @@
  */
 package UI.main;
 
+import Core.DAO.UsersDAO;
 import Core.ViewController;
 import Core.ViewPanel;
 import UI.banhang.TicketJFrame;
@@ -13,7 +14,6 @@ import UI.quanly.QLNguoiDungJFrame;
 import UI.quanly.QLPhimJFrame;
 import UI.quanly.QLSuatChieuJFrame;
 import UI.thongke.DoanhthuJFrame;
-import UI.thongke.VeBanJFrame;
 
 /**
  *
@@ -27,7 +27,6 @@ public class HomePage extends javax.swing.JFrame {
     private QLSuatChieuJFrame QLSuatChieuJFrame = new QLSuatChieuJFrame();
     private TicketJFrame ticket = new TicketJFrame();
     private DoanhthuJFrame doanhthu = new DoanhthuJFrame();
-    private VeBanJFrame veban = new VeBanJFrame();
     
     public static String pathFile = "C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\e-Projects2\\src\\main\\resoures\\image";    /**
      * Creates new form HomePage
@@ -43,6 +42,7 @@ public class HomePage extends javax.swing.JFrame {
 //        listItem.add(new ViewPanel("ThongKe", jpnThongKe));
 //        controller.setEvent(listItem);
         load = true;
+        label6.setText(UsersDAO.username);
     }
 
     /**
@@ -56,7 +56,7 @@ public class HomePage extends javax.swing.JFrame {
 
         jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel6 = new javax.swing.JLabel();
+        label6 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btnVe = new javax.swing.JButton();
         btnNguoiDung = new javax.swing.JButton();
@@ -64,7 +64,6 @@ public class HomePage extends javax.swing.JFrame {
         btnSuatChieu = new javax.swing.JButton();
         btnPhim2 = new javax.swing.JButton();
         btnDoanhThu = new javax.swing.JButton();
-        btnVeBan = new javax.swing.JButton();
         btnCollapse3 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -86,8 +85,8 @@ public class HomePage extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(52, 83, 104));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\project_ki2\\src\\main\\resoures\\icons\\Users-Name.png")); // NOI18N
-        jLabel6.setText("User");
+        label6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\project_ki2\\src\\main\\resoures\\icons\\Users-Name.png")); // NOI18N
+        label6.setText("User");
 
         jPanel2.setBackground(new java.awt.Color(204, 255, 255));
 
@@ -124,7 +123,7 @@ public class HomePage extends javax.swing.JFrame {
         btnSuatChieu.setBackground(new java.awt.Color(0, 102, 102));
         btnSuatChieu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnSuatChieu.setIcon(new javax.swing.ImageIcon("C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\project_ki2\\src\\main\\resoures\\icons\\clapperboard.png")); // NOI18N
-        btnSuatChieu.setText("Suất chiếu");
+        btnSuatChieu.setText("Phòng ");
         btnSuatChieu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSuatChieuActionPerformed(evt);
@@ -148,16 +147,6 @@ public class HomePage extends javax.swing.JFrame {
         btnDoanhThu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDoanhThuActionPerformed(evt);
-            }
-        });
-
-        btnVeBan.setBackground(new java.awt.Color(255, 102, 0));
-        btnVeBan.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnVeBan.setIcon(new javax.swing.ImageIcon("C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\project_ki2\\src\\main\\resoures\\icons\\tickets.png")); // NOI18N
-        btnVeBan.setText("Vé Bán");
-        btnVeBan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVeBanActionPerformed(evt);
             }
         });
 
@@ -192,14 +181,14 @@ public class HomePage extends javax.swing.JFrame {
                                 .addComponent(btnNguoiDung, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnPhim2, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnSuatChieu, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(153, 153, 153)
                                 .addComponent(btnVe, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel1)
@@ -208,9 +197,7 @@ public class HomePage extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(39, 39, 39)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnDoanhThu, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnVeBan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnDoanhThu, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -225,9 +212,7 @@ public class HomePage extends javax.swing.JFrame {
                         .addGap(32, 32, 32)
                         .addComponent(jLabel3)
                         .addGap(33, 33, 33)
-                        .addComponent(btnDoanhThu, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35)
-                        .addComponent(btnVeBan, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnDoanhThu, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addComponent(jLabel1)
@@ -259,7 +244,7 @@ public class HomePage extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(label6, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnOut)
                 .addGap(30, 30, 30))
@@ -273,7 +258,7 @@ public class HomePage extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                    .addComponent(label6, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
                     .addComponent(btnOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -296,11 +281,6 @@ public class HomePage extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnVeBanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVeBanActionPerformed
-        // TODO add your handling code here:
-        veban.show();
-    }//GEN-LAST:event_btnVeBanActionPerformed
 
     private void btnDoanhThuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoanhThuActionPerformed
         // TODO add your handling code here:
@@ -337,7 +317,7 @@ public class HomePage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCollapse3MouseReleased
 
     private void btnOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOutActionPerformed
-        System.exit(0);
+        this.setVisible(false);
         new LoginJFrame1().setVisible(true);
     }//GEN-LAST:event_btnOutActionPerformed
 
@@ -371,7 +351,12 @@ public class HomePage extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HomePage().setVisible(true);
+                if (LoginJFrame1.run1) {
+                    new HomePage().setVisible(true);
+                }
+                else {
+                    new LoginJFrame1().setVisible(true);
+                }
             }
         });
     }
@@ -385,12 +370,11 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JButton btnPhim2;
     private javax.swing.JButton btnSuatChieu;
     private javax.swing.JButton btnVe;
-    private javax.swing.JButton btnVeBan;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel label6;
     // End of variables declaration//GEN-END:variables
 }

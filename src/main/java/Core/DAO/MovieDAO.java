@@ -129,8 +129,7 @@ public class MovieDAO extends BaseDAO {
     }
 
     public static void delete(int id) {
-         String sql = "delete from movie where id_movie = ?";
-         
+        String sql = "delete from movie where id_movie = ?";
         try {
             Connection();
             statement = conn.prepareStatement(sql);

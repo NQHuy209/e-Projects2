@@ -10,12 +10,14 @@ import UI.main.HomePage;
  * @author admin
  */
 public class LoginJFrame1 extends javax.swing.JFrame {
-
+    public static boolean run1;
     /**
      * Creates new form LoginJFrame1
      */
     public LoginJFrame1() {
         initComponents();
+        run1 = true;
+        
     }
 
     /**
@@ -43,6 +45,7 @@ public class LoginJFrame1 extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -195,6 +198,7 @@ public class LoginJFrame1 extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if(UsersDAO.checkAcc(this, jTextField_UserName, jPasswordField1)){
             new HomePage().setVisible(true);
+            this.setVisible(false);
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -85,13 +85,12 @@ public class RoomModelDAO extends BaseDAO implements IRoomModelDao{
     
     @Override
     public void add(RoomModel roomModel) {
-        String sql = "insert into room(name,id_room_seat,id_room_type) values ( ?, ?, ?)";
+        String sql = "insert into room(name) values (?)";
         try {
             Connection();
             statement = conn.prepareStatement(sql);
             statement.setString(1, roomModel.getName());
-            statement.setInt(2,roomModel.getId_room_seat());
-            statement.setInt(3, roomModel.getId_room_type());
+            
             
             statement.execute();
         } catch (SQLException ex) {
@@ -102,13 +101,12 @@ public class RoomModelDAO extends BaseDAO implements IRoomModelDao{
 
     @Override
     public void update(RoomModel updateroomModel) {
-        String sql = "update room set name = ?, id_room_seat = ?, id_room_type = ? where id_room = ?";
+        String sql = "update room set name = ? where id_room = ?";
         try {
             Connection();
             statement = conn.prepareStatement(sql);
             statement.setString(1, updateroomModel.getName());
-            statement.setInt(2, updateroomModel.getId_room_seat());
-            statement.setInt(3, updateroomModel.getId_room_type());
+            
             statement.setInt(4, updateroomModel.getId_room());
             
             statement.execute();

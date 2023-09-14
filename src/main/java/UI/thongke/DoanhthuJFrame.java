@@ -70,7 +70,7 @@ public class DoanhthuJFrame extends javax.swing.JFrame {
 
             },
             new String [] {
-                "STT", "Tên phim", "Ngày công chiếu ", "Số lượng vé bán ", "Doanh thu"
+                "STT", "Tên phim", "Ngày công chiếu ", "Ngày bán", "Giá"
             }
         ) {
             Class[] types = new Class [] {

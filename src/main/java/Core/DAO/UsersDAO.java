@@ -39,12 +39,12 @@ public class UsersDAO extends BaseDAO {
             ResultSet set = statement.executeQuery();
             if (set.next()) {
                 if (jPasswordField1.getText().equals(set.getString("password"))) {
-                    id = set.getInt("id");
+                    id = set.getInt("id_users");
                     username = set.getString("username");
                     check = true;
 
                 } else {
-                    check = true;
+                    check = false;
                     jPasswordField1.requestFocus();
                     JOptionPane.showMessageDialog(frame, "Mật khẩu chưa chính xác", null, JOptionPane.WARNING_MESSAGE);
                 }

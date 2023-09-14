@@ -296,7 +296,7 @@ public class QLPhimJFrame extends javax.swing.JFrame {
             this.setVisible(false);
         }
         else {
-            JOptionPane.showMessageDialog(this, "Vui lòng chọn phim cần update", null, JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Vui lòng chọn chỗ cần update", null, JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
