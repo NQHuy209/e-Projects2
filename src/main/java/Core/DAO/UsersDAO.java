@@ -41,6 +41,8 @@ public class UsersDAO extends BaseDAO {
                 if (jPasswordField1.getText().equals(set.getString("password"))) {
                     id = set.getInt("id_users");
                     username = set.getString("username");
+                    role = set.getString("role");
+                    
                     check = true;
 
                 } else {

@@ -4,7 +4,6 @@ C:\Users\Quang Huy\Documents\NetBeansProjects\e-Projects2\src\main\java\UI\main\
 C:\Users\Quang Huy\Documents\NetBeansProjects\e-Projects2\src\main\java\UI\quanly\QLPhimJFrame.java
 C:\Users\Quang Huy\Documents\NetBeansProjects\e-Projects2\src\main\java\Core\DAO\inteface\ITicketDao.java
 C:\Users\Quang Huy\Documents\NetBeansProjects\e-Projects2\src\main\java\Core\DAO\inteface\IUserDAO.java
-C:\Users\Quang Huy\Documents\NetBeansProjects\e-Projects2\src\main\java\UI\capnhat\CapnhatPhong.java
 C:\Users\Quang Huy\Documents\NetBeansProjects\e-Projects2\src\main\java\Core\DAO\inteface\IRoomSeatDAO.java
 C:\Users\Quang Huy\Documents\NetBeansProjects\e-Projects2\src\main\java\Core\DAO\RoomModelDAO.java
 C:\Users\Quang Huy\Documents\NetBeansProjects\e-Projects2\src\main\java\UI\quanly\QLNguoiDungJFrame.java
@@ -17,6 +16,7 @@ C:\Users\Quang Huy\Documents\NetBeansProjects\e-Projects2\src\main\java\Core\DAO
 C:\Users\Quang Huy\Documents\NetBeansProjects\e-Projects2\src\main\java\Core\DAO\RoomSeatDAO.java
 C:\Users\Quang Huy\Documents\NetBeansProjects\e-Projects2\src\main\java\Core\Model\UsersModel.java
 C:\Users\Quang Huy\Documents\NetBeansProjects\e-Projects2\src\main\java\Core\ViewController.java
+C:\Users\Quang Huy\Documents\NetBeansProjects\e-Projects2\src\main\java\UI\capnhat\CapNhatGhe.java
 C:\Users\Quang Huy\Documents\NetBeansProjects\e-Projects2\src\main\java\Core\DAO\BillDAO.java
 C:\Users\Quang Huy\Documents\NetBeansProjects\e-Projects2\src\main\java\UI\dangnhap\LoginJFrame1.java
 C:\Users\Quang Huy\Documents\NetBeansProjects\e-Projects2\src\main\java\UI\them\ThemPhim.java

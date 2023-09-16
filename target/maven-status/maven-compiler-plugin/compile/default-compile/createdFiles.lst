@@ -10,11 +10,8 @@ UI\banhang\TicketJFrame$2.class
 Core\DAO\inteface\IMovieDAO.class
 UI\quanly\QLHoaDonJFrame$3.class
 UI\capnhat\CapNhatNguoiDung$2.class
-UI\quanly\QLHoaDonJFrame$6.class
 Core\DAO\inteface\IRoomModelDao.class
 Core\Model\BaseModel.class
-UI\thongke\DoanhthuJFrame$15.class
-UI\thongke\DoanhthuJFrame$12.class
 UI\dangnhap\LoginJFrame1$1.class
 UI\main\HomePage$4.class
 Core\Model\BillModel.class
@@ -34,7 +31,6 @@ UI\capnhat\CapNhatNguoiDung$4.class
 UI\them\ThemPhim$4.class
 UI\dangnhap\RegisterJFrame$3.class
 Core\DAO\TicketDAO.class
-UI\thongke\DoanhthuJFrame$13.class
 UI\capnhat\CapNhatPhim$4.class
 UI\main\HomePage.class
 UI\quanly\QLPhimJFrame$6.class
@@ -48,11 +44,9 @@ UI\quanly\QLHoaDonJFrame$1.class
 Core\Model\RoomSeatModel.class
 UI\quanly\QLNguoiDungJFrame$3.class
 UI\quanly\QLSuatChieuJFrame$3.class
-UI\capnhat\CapNhatGhe$5.class
 UI\capnhat\CapNhatPhim$3.class
 UI\quanly\QLNguoiDungJFrame$2.class
 UI\capnhat\CapNhatNguoiDung$3.class
-UI\thongke\DoanhthuJFrame$14.class
 UI\quanly\QLSuatChieuJFrame$4.class
 Core\DAO\MovieDAO.class
 UI\main\HomePage$3.class
@@ -63,10 +57,10 @@ UI\quanly\QLNguoiDungJFrame$1.class
 UI\quanly\QLPhimJFrame.class
 UI\them\ThemPhim$3.class
 Core\ViewPanel.class
+UI\capnhat\CapNhatNguoiDung$6.class
 Core\Model\UsersModel.class
 UI\quanly\QLSuatChieuJFrame.class
 UI\them\ThemPhim$6.class
-UI\thongke\DoanhthuJFrame$7.class
 Core\DAO\inteface\IUserDAO.class
 Core\DAO\BaseDAO.class
 Core\DAO\RoomModelDAO.class
@@ -87,13 +81,11 @@ UI\quanly\QLNguoiDungJFrame.class
 Core\Model\RoomModel.class
 Core\DAO\BillDAO.class
 UI\capnhat\CapNhatPhim$1.class
-UI\dangnhap\RegisterJFrame$4.class
 UI\quanly\QLSuatChieuJFrame$5.class
 UI\main\HomePage$8.class
 UI\capnhat\CapNhatNguoiDung$1.class
 UI\quanly\QLNguoiDungJFrame$4.class
 UI\quanly\QLHoaDonJFrame$5.class
-UI\thongke\DoanhthuJFrame$16.class
 UI\capnhat\CapNhatPhim.class
 UI\them\ThemPhim$8.class
 UI\quanly\QLSuatChieuJFrame$6.class
@@ -102,10 +94,9 @@ UI\quanly\QLNguoiDungJFrame$6.class
 UI\them\ThemPhim$1.class
 UI\thongke\DoanhthuJFrame$2.class
 UI\capnhat\CapNhatGhe$1.class
-UI\thongke\DoanhthuJFrame$10.class
+UI\dangnhap\LoginJFrame1$3.class
 UI\quanly\QLPhimJFrame$3.class
 UI\banhang\TicketJFrame$4.class
-UI\thongke\DoanhthuJFrame$9.class
 UI\capnhat\CapNhatNguoiDung$5.class
 UI\quanly\QLSuatChieuJFrame$7.class
 UI\quanly\QLPhimJFrame$2.class
@@ -117,5 +108,3 @@ UI\them\ThemPhim$2.class
 Core\Model\MovieModel.class
 UI\capnhat\CapNhatGhe$2.class
 Core\ViewController$LabelEvent.class
-UI\thongke\DoanhthuJFrame$8.class
-UI\thongke\DoanhthuJFrame$11.class

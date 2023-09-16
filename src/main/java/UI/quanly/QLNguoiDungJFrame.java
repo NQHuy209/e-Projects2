@@ -8,6 +8,7 @@ import Core.DAO.MovieDAO;
 import Core.DAO.UsersDAO;
 import Core.Model.UsersModel;
 import UI.capnhat.CapNhatNguoiDung;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -15,7 +16,6 @@ import javax.swing.table.DefaultTableModel;
  * @author HieuPC
  */
 public class QLNguoiDungJFrame extends javax.swing.JFrame {
-    private CapNhatNguoiDung capnhat = new CapNhatNguoiDung();
     DefaultTableModel tableModel;
 
     /**
@@ -283,6 +283,8 @@ public class QLNguoiDungJFrame extends javax.swing.JFrame {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         UsersDAO.delete(UsersDAO.userList.get(tblC.getSelectedRow()).getId_users());
         showDataTable();
+        JOptionPane.showMessageDialog(this, "Xóa thành công");
+
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnCollapseMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCollapseMouseReleased
@@ -290,7 +292,7 @@ public class QLNguoiDungJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCollapseMouseReleased
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        MovieDAO.findByName(txtSearch.getText());
+        UsersDAO.findByName(txtSearch.getText());
         showDataTable();
     }//GEN-LAST:event_btnSearchActionPerformed
 

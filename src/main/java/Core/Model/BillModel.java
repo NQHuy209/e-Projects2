@@ -13,20 +13,22 @@ import java.sql.Timestamp;
  * @author Quang Huy
  */
 public class BillModel {
-    public  int id;
-    public  int id_movie;
-    public  int id_room_seat;
-    public  int price;
+
+    public int id;
+    public int id_movie;
+    public int id_room_seat;
+    public int price;
     public String day_started;
-    public  String time_started;
+    public String time_started;
     public Timestamp time_bill;
-    
-    
+    public int id_users;
+    public String user;
+    public String movie;
 
     public BillModel() {
     }
 
-    public BillModel(int id, int id_movie, int id_room_seat, int price, String day_started, String time_started, Timestamp time_bill) {
+    public BillModel(int id, int id_movie, int id_room_seat, int price, String day_started, String time_started, Timestamp time_bill, int id_users) {
         this.id = id;
         this.id_movie = id_movie;
         this.id_room_seat = id_room_seat;
@@ -34,6 +36,7 @@ public class BillModel {
         this.day_started = day_started;
         this.time_started = time_started;
         this.time_bill = time_bill;
+        this.id_users = id_users;
     }
 
     public int getId() {
@@ -92,10 +95,34 @@ public class BillModel {
         this.time_bill = time_bill;
     }
 
+    public int getId_users() {
+        return id_users;
+    }
+
+    public void setId_users(int id_users) {
+        this.id_users = id_users;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getMovie() {
+        return movie;
+    }
+
+    public void setMovie(String movie) {
+        this.movie = movie;
+    }
+    
     
 
-    public void readRecord(ResultSet resultSet){
-    
+    public void readRecord(ResultSet resultSet) {
+
         try {
             this.id = resultSet.getInt("id");
             this.id_movie = resultSet.getInt("id_movie");
@@ -104,11 +131,36 @@ public class BillModel {
             this.day_started = resultSet.getString("day_started");
             this.time_started = resultSet.getString("time_started");
             this.time_bill = resultSet.getTimestamp("time_bill");
+            this.id_users = resultSet.getInt("id_users");
+        } catch (SQLException e) {
+        }
+
+    }
+    
+    public void readRecord2(ResultSet resultSet){
+    
+        try {
+            this.id = resultSet.getInt("id");
+            this.price = resultSet.getInt("price");
+            this.time_bill = resultSet.getTimestamp("time_bill");
+            this.user = resultSet.getString("users.name");
         } catch (SQLException e) {
         }
         
     }
     
+    public void readRecord3(ResultSet resultSet){
     
-
+        try {
+            this.id = resultSet.getInt("id");
+            this.id_movie = resultSet.getInt("id_movie");
+            this.day_started = resultSet.getString("day_started");
+            this.time_started = resultSet.getString("time_started");
+            this.time_bill = resultSet.getTimestamp("time_bill");
+            this.price = resultSet.getInt("price");
+            this.movie = resultSet.getString("movie.name");
+        } catch (SQLException e) {
+        }
+        
+    }
 }

@@ -21,12 +21,6 @@ import UI.thongke.DoanhthuJFrame;
  */
 public class HomePage extends javax.swing.JFrame {
     public static boolean load;
-    private QLPhimJFrame QLPhimJFrame = new QLPhimJFrame();
-    private QLHoaDonJFrame QLHoaDonJFrame = new QLHoaDonJFrame();
-    private QLNguoiDungJFrame QLNguoiDungJFrame = new QLNguoiDungJFrame();
-    private QLSuatChieuJFrame QLSuatChieuJFrame = new QLSuatChieuJFrame();
-    private TicketJFrame ticket = new TicketJFrame();
-    private DoanhthuJFrame doanhthu = new DoanhthuJFrame();
     
     public static String pathFile = "C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\e-Projects2\\src\\main\\resoures\\image";    /**
      * Creates new form HomePage
@@ -43,6 +37,13 @@ public class HomePage extends javax.swing.JFrame {
 //        controller.setEvent(listItem);
         load = true;
         label6.setText(UsersDAO.username);
+        if(UsersDAO.role.equals("Quản Lý"))
+        {
+            btnNguoiDung.setEnabled(true);
+        }
+        else {
+            btnNguoiDung.setEnabled(false);
+        }
     }
 
     /**
@@ -284,32 +285,32 @@ public class HomePage extends javax.swing.JFrame {
 
     private void btnDoanhThuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoanhThuActionPerformed
         // TODO add your handling code here:
-        doanhthu.show();
+        new DoanhthuJFrame().setVisible(true);
     }//GEN-LAST:event_btnDoanhThuActionPerformed
 
     private void btnPhim2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPhim2ActionPerformed
         // TODO add your handling code here:
-        QLPhimJFrame.show();
+        new QLPhimJFrame().setVisible(true);
     }//GEN-LAST:event_btnPhim2ActionPerformed
 
     private void btnSuatChieuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSuatChieuActionPerformed
         // TODO add your handling code here:
-        QLSuatChieuJFrame.show();
+        new QLSuatChieuJFrame().setVisible(true);
     }//GEN-LAST:event_btnSuatChieuActionPerformed
 
     private void btnHoaDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHoaDonActionPerformed
         // TODO add your handling code here:
-        QLHoaDonJFrame.show();
+        new QLHoaDonJFrame().setVisible(true);
     }//GEN-LAST:event_btnHoaDonActionPerformed
 
     private void btnNguoiDungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNguoiDungActionPerformed
         // TODO add your handling code here:
-        QLNguoiDungJFrame.setVisible(true);
+        new QLNguoiDungJFrame().setVisible(true);
     }//GEN-LAST:event_btnNguoiDungActionPerformed
 
     private void btnVeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVeActionPerformed
         // TODO add your handling code here:\
-        ticket.show();
+        new TicketJFrame().setVisible(true);
     }//GEN-LAST:event_btnVeActionPerformed
 
     private void btnCollapse3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCollapse3MouseReleased

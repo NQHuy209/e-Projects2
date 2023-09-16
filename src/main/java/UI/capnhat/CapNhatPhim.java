@@ -98,7 +98,6 @@ public class CapNhatPhim extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         txtDirector = new javax.swing.JTextField();
         btnLuu = new javax.swing.JButton();
-        btnHuy = new javax.swing.JButton();
         btnChonanh = new javax.swing.JButton();
         txtType = new javax.swing.JTextField();
 
@@ -228,9 +227,6 @@ public class CapNhatPhim extends javax.swing.JFrame {
             }
         });
 
-        btnHuy.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btnHuy.setText("Hủy");
-
         btnChonanh.setText("Chọn ảnh");
         btnChonanh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -248,7 +244,7 @@ public class CapNhatPhim extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -295,10 +291,9 @@ public class CapNhatPhim extends javax.swing.JFrame {
                                     .addComponent(cbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(txtType)))))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(283, 283, 283)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnLuu)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnHuy)))
+                        .addGap(276, 276, 276)))
                 .addContainerGap(52, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -349,9 +344,7 @@ public class CapNhatPhim extends javax.swing.JFrame {
                         .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(cbForm, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLuu, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnHuy, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnLuu, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 23, Short.MAX_VALUE))
         );
 
@@ -443,7 +436,6 @@ public class CapNhatPhim extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnChonanh;
-    private javax.swing.JButton btnHuy;
     private javax.swing.JButton btnLuu;
     private javax.swing.JComboBox<String> cbForm;
     private javax.swing.JComboBox<String> cbStatus;
