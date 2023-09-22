@@ -246,7 +246,7 @@ public class RegisterJFrame extends javax.swing.JFrame {
 
     private void jButton_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_registerActionPerformed
         // TODO add your handling code here:
-        if (checkNull()) {
+        if (checkNull() && UsersDAO.checkAccount(this, jTextField_usernameS, -1, -1)) {
             String date = jDateChooser_birth.getDate().toInstant().atZone(ZoneId.systemDefault()).toString().split("T")[0];
             UsersModel usersModel = new UsersModel(id_users, txtName.getText(), jTextField_address.getText(), jTextField_phoneNumber.getText(), date,cbGender.getItemAt(cbGender.getSelectedIndex()), jTextField_email.getText(), jTextField_usernameS.getText(), jPasswordField_pass.getText(), jComboBox_role.getItemAt(jComboBox_role.getSelectedIndex()));
             UsersDAO.signUp(usersModel);

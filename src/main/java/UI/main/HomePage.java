@@ -40,9 +40,15 @@ public class HomePage extends javax.swing.JFrame {
         if(UsersDAO.role.equals("Quản Lý"))
         {
             btnNguoiDung.setEnabled(true);
+            btnPhim2.setEnabled(true);
+            btnDoanhThu.setEnabled(true);
+            btnSuatChieu.setEnabled(true);
         }
         else {
             btnNguoiDung.setEnabled(false);
+            btnPhim2.setEnabled(false);
+            btnDoanhThu.setEnabled(false);
+            btnSuatChieu.setEnabled(false);
         }
     }
 
@@ -86,14 +92,14 @@ public class HomePage extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(52, 83, 104));
 
-        label6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\project_ki2\\src\\main\\resoures\\icons\\Users-Name.png")); // NOI18N
+        label6.setIcon(new javax.swing.ImageIcon("C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\e-Projects2\\src\\main\\resoures\\icons\\Users-Name.png")); // NOI18N
         label6.setText("User");
 
         jPanel2.setBackground(new java.awt.Color(204, 255, 255));
 
         btnVe.setBackground(new java.awt.Color(255, 102, 0));
         btnVe.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnVe.setIcon(new javax.swing.ImageIcon("C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\project_ki2\\src\\main\\resoures\\icons\\tickets.png")); // NOI18N
+        btnVe.setIcon(new javax.swing.ImageIcon("C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\e-Projects2\\src\\main\\resoures\\icons\\tickets.png")); // NOI18N
         btnVe.setText("Vé");
         btnVe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -103,7 +109,7 @@ public class HomePage extends javax.swing.JFrame {
 
         btnNguoiDung.setBackground(new java.awt.Color(255, 102, 102));
         btnNguoiDung.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnNguoiDung.setIcon(new javax.swing.ImageIcon("C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\project_ki2\\src\\main\\resoures\\icons\\employee.png")); // NOI18N
+        btnNguoiDung.setIcon(new javax.swing.ImageIcon("C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\e-Projects2\\src\\main\\resoures\\icons\\employee.png")); // NOI18N
         btnNguoiDung.setText("Người dùng");
         btnNguoiDung.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,7 +119,7 @@ public class HomePage extends javax.swing.JFrame {
 
         btnHoaDon.setBackground(new java.awt.Color(255, 255, 204));
         btnHoaDon.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnHoaDon.setIcon(new javax.swing.ImageIcon("C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\project_ki2\\src\\main\\resoures\\icons\\payment.png")); // NOI18N
+        btnHoaDon.setIcon(new javax.swing.ImageIcon("C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\e-Projects2\\src\\main\\resoures\\icons\\payment.png")); // NOI18N
         btnHoaDon.setText("Hóa đơn");
         btnHoaDon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,7 +129,7 @@ public class HomePage extends javax.swing.JFrame {
 
         btnSuatChieu.setBackground(new java.awt.Color(0, 102, 102));
         btnSuatChieu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnSuatChieu.setIcon(new javax.swing.ImageIcon("C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\project_ki2\\src\\main\\resoures\\icons\\clapperboard.png")); // NOI18N
+        btnSuatChieu.setIcon(new javax.swing.ImageIcon("C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\e-Projects2\\src\\main\\resoures\\icons\\film-reel.png")); // NOI18N
         btnSuatChieu.setText("Phòng ");
         btnSuatChieu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,7 +139,7 @@ public class HomePage extends javax.swing.JFrame {
 
         btnPhim2.setBackground(new java.awt.Color(255, 102, 0));
         btnPhim2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnPhim2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\project_ki2\\src\\main\\resoures\\icons\\film-reel.png")); // NOI18N
+        btnPhim2.setIcon(new javax.swing.ImageIcon("C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\e-Projects2\\src\\main\\resoures\\icons\\clapperboard.png")); // NOI18N
         btnPhim2.setText("Phim");
         btnPhim2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,7 +149,7 @@ public class HomePage extends javax.swing.JFrame {
 
         btnDoanhThu.setBackground(new java.awt.Color(255, 102, 0));
         btnDoanhThu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        btnDoanhThu.setIcon(new javax.swing.ImageIcon("C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\project_ki2\\src\\main\\resoures\\icons\\tickets.png")); // NOI18N
+        btnDoanhThu.setIcon(new javax.swing.ImageIcon("C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\e-Projects2\\src\\main\\resoures\\icons\\analytics.png")); // NOI18N
         btnDoanhThu.setText("Doanh Thu");
         btnDoanhThu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

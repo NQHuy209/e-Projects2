@@ -5,12 +5,14 @@
 package UI.capnhat;
 
 import Core.DAO.UsersDAO;
+import static Core.DAO.UsersDAO.userList;
 import Core.Model.UsersModel;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -114,7 +116,7 @@ public class CapNhatNguoiDung extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Vui lòng nhập đầy đủ thông tin");
 
-        jLabel15.setIcon(new javax.swing.ImageIcon("C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\project_ki2\\src\\main\\resoures\\icons\\employees.png")); // NOI18N
+        jLabel15.setIcon(new javax.swing.ImageIcon("C:\\Users\\Quang Huy\\Documents\\NetBeansProjects\\e-Projects2\\src\\main\\resoures\\icons\\team.png")); // NOI18N
         jLabel15.setText("jLabel15");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -337,7 +339,7 @@ public class CapNhatNguoiDung extends javax.swing.JFrame {
     }//GEN-LAST:event_txtNameActionPerformed
 
     private void btnLuuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLuuActionPerformed
-        if (checkNull()) {
+        if (checkNull() && UsersDAO.checkAccount(this, txtUser, id_users, 1)){
             String date = dcBirth.getDate().toInstant().atZone(ZoneId.systemDefault()).toString().split("T")[0];
             UsersModel usersModel = new UsersModel(id_users, txtName.getText(), txtAddress.getText(), txtPhone.getText(), date , cbGender.getItemAt(cbGender.getSelectedIndex()), txtEmail.getText(),txtUser.getText(), txtPass.getText(), cbRole.getItemAt(cbRole.getSelectedIndex())); 
             UsersDAO.update(usersModel);

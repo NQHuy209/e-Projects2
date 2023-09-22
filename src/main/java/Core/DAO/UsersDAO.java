@@ -5,6 +5,7 @@
 package Core.DAO;
 
 import Core.Model.UsersModel;
+import com.mysql.cj.protocol.Warning;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -62,6 +64,29 @@ public class UsersDAO extends BaseDAO {
         return check;
 
     }
+    
+    public static boolean checkAccount (JFrame jframe, JTextField jTextField_usernameS, int id_users, int type) {
+        boolean check = true;
+        Connection();
+            String sql = "SELECT * FROM project2.users WHERE username = '" + jTextField_usernameS.getText() + "'";
+        if (type == 1) {
+            sql = "SELECT * FROM project2.users WHERE username = '" + jTextField_usernameS.getText() + "' AND id_users != " + id_users; 
+        }    
+        try {
+            statement = conn.prepareStatement(sql);
+            ResultSet set = statement.executeQuery();
+            if (set.next()) {
+                check = false;
+                JOptionPane.showMessageDialog(jframe, "Tên người dùng đã tồn tại!", null, JOptionPane.WARNING_MESSAGE);
+            }
+        }catch (SQLException ex) {
+            Logger.getLogger(UsersDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Disconnect();
+        return check;
+    }
+    
+    
     public static void signUp(UsersModel usersModel){
         String sql = "insert into users(name, address, phone_number, birthday, gender, email, username, password, role) values(?,?,?,?,?,?,?,?,?)";
         try {
