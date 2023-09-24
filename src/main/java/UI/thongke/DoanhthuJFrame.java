@@ -37,7 +37,7 @@ public class DoanhthuJFrame extends javax.swing.JFrame {
         
         BillDAO.danhSachDoanhthu();
         showDataTable();
-        lblTong.setText("Tổng Doanh Thu = " + total);
+        lblTong.setText("Tổng Doanh Thu = " + total + "$");
     }
     
     private void showDataTable() {
@@ -167,7 +167,7 @@ public class DoanhthuJFrame extends javax.swing.JFrame {
 
         btnSearch.setBackground(new java.awt.Color(153, 255, 255));
         btnSearch.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        btnSearch.setText("Search");
+        btnSearch.setText("Tìm Kiếm");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSearchActionPerformed(evt);
@@ -260,7 +260,7 @@ public class DoanhthuJFrame extends javax.swing.JFrame {
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         BillDAO.findByName(txtPhim.getText());
         showDataTable();
-        lblTong.setText("Tổng Doanh Thu = " + total);
+        lblTong.setText("Tổng Doanh Thu = " + total + "$");
     }//GEN-LAST:event_btnSearchActionPerformed
 
     /**

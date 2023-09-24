@@ -76,7 +76,7 @@ public class QLHoaDonJFrame extends javax.swing.JFrame {
 
         btnSearch.setBackground(new java.awt.Color(51, 153, 255));
         btnSearch.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnSearch.setText("Search");
+        btnSearch.setText("Tìm Kiếm");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSearchActionPerformed(evt);

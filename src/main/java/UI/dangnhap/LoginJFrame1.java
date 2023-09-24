@@ -79,7 +79,7 @@ public class LoginJFrame1 extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(153, 255, 255));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        jLabel3.setText("Movie tikets");
+        jLabel3.setText("Movie ticket");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         jLabel4.setText("Welcome to the world of movies");

@@ -34,6 +34,7 @@ public class TicketJFrame extends javax.swing.JFrame {
         initComponents();
         movieModel = (DefaultTableModel) tblMovie.getModel();
         seatModel = (DefaultTableModel) tblSeat.getModel();
+        RoomSeatDAO.RoomSeatAll();
         showDataTableMovie();
         showDataTableSeat();
     }
